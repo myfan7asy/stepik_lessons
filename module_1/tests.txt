@@ -1,0 +1,6 @@
+Home page - http://selenium1py.pythonanywhere.com/ru/
+- User scenario 1.1
+-- Test scenario 1.1.1
+-- Test scenario 1.1.2
+
+Register / Login page - http://selenium1py.pythonanywhere.com/ru/accounts/login/
