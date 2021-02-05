@@ -1,0 +1,5 @@
+input#name
+//input[@name='userlastname']
+input.test-cls3
+//input[@testattr_phone]
+//input[contains(@class, 'test-cls5')]
