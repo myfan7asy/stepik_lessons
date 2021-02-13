@@ -30,11 +30,11 @@ def generate_unique_email():
     return username + domain
 
 
-def clear_and_complete_input(input_locator, input_value: str):
+def clear_and_complete_input(input_locator: tuple, input_value: str):
     """
     A helper function, which finds, clears and completes an input field
-    :param input_locator: locator of input web element
-    :param input_value: value we complete input with
+    :param input_locator: tuple object (locator of input web element)
+    :param input_value: str object (a value we complete input with)
     """
     input_elem = driver.find_element(*input_locator)
     input_elem.clear()
