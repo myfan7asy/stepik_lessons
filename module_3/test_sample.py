@@ -19,6 +19,10 @@ success_registration_block_locator = (By.CSS_SELECTOR, "div.alertinner")
 
 
 def generate_unique_email():
+    """
+    A helper function, which generates a random unique email address, which is required for successful registration.
+    :return: str object (uniquely generated username + static domain)
+    """
     letters = string.ascii_letters.lower()
     numbers = random.randint(0, 999)
     username = random.choice(letters) + str(numbers)
@@ -27,12 +31,23 @@ def generate_unique_email():
 
 
 def clear_and_complete_input(input_locator, input_value: str):
+    """
+    A helper function, which finds, clears and completes an input field
+    :param input_locator: locator of input web element
+    :param input_value: value we complete input with
+    """
     input_elem = driver.find_element(*input_locator)
     input_elem.clear()
     input_elem.send_keys(input_value)
 
 
 def verify_actual_url(expected_url):
+    """
+    A kind of soft assert function. Is used for unnecessary check of intermediate steps - verifies
+    expected url matches with actual one. In case of failure - an exception is raised.
+    :param expected_url: str object (url we expect to see)
+    *NOTE* Function is created for self-study cases. Actual benefit is controversial.
+    """
     current_url = driver.current_url
     if current_url != expected_url:
         raise Exception(f"Current URL is: {current_url}, but expected is: {expected_url}")
