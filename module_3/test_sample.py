@@ -30,7 +30,7 @@ def generate_unique_email():
     return username + domain
 
 
-def clear_and_complete_input(input_locator: tuple, input_value: str):
+def clear_and_complete_input(input_locator: tuple, input_value: str, driver):
     """
     A helper function, which finds, clears and completes an input field
     :param input_locator: tuple object (locator of input web element)
@@ -41,44 +41,37 @@ def clear_and_complete_input(input_locator: tuple, input_value: str):
     input_elem.send_keys(input_value)
 
 
-def verify_actual_url(expected_url):
-    """
-    A kind of soft assert function. Is used for unnecessary check of intermediate steps - verifies
-    expected url matches with actual one. In case of failure - an exception is raised.
-    :param expected_url: str object (url we expect to see)
-    *NOTE* Function is created for self-study cases. Actual benefit is controversial.
-    """
-    current_url = driver.current_url
-    if current_url != expected_url:
-        raise Exception(f"Current URL is: {current_url}, but expected is: {expected_url}")
-
-
-try:
-    # ARRANGE BLOCK
+def driver_init():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--window-size=1920,1080")
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(5)
+    return driver
 
-    driver.get(HOME_PAGE_URL)
-    verify_actual_url(HOME_PAGE_URL)
 
-    login_or_register_elem = driver.find_element(*login_or_register_locator)
-    login_or_register_elem.click()
-    verify_actual_url(LOGIN_OR_REGISTER_PAGE_URL)
+def test_register_with_valid_data(driver):
+    try:
+        # ARRANGE BLOCK
 
-    # ACT BLOCK
-    clear_and_complete_input(email_address_locator, generate_unique_email())
-    clear_and_complete_input(password_locator, password)
-    clear_and_complete_input(confirm_password_locator, confirm_password)
+        driver.get(HOME_PAGE_URL)
 
-    register_button = driver.find_element(*register_button_locator)
-    register_button.click()
+        login_or_register_elem = driver.find_element(*login_or_register_locator)
+        login_or_register_elem.click()
 
-    # ASSERT BLOCK
-    success_registration_block = driver.find_element(*success_registration_block_locator)
-    verify_actual_url(HOME_PAGE_URL)
-    assert success_registration_block.text == success_registration_message, "New user registration has failed"
-finally:
-    driver.quit()
+        # ACT BLOCK
+        clear_and_complete_input(email_address_locator, generate_unique_email(), driver)
+        clear_and_complete_input(password_locator, password, driver)
+        clear_and_complete_input(confirm_password_locator, confirm_password, driver)
+
+        register_button = driver.find_element(*register_button_locator)
+        register_button.click()
+
+        # ASSERT BLOCK
+        success_registration_block = driver.find_element(*success_registration_block_locator)
+        assert success_registration_block.text == success_registration_message, "New user registration has failed"
+    finally:
+        driver.quit()
+
+
+test_register_with_valid_data(driver_init())
