@@ -14,7 +14,7 @@ locales = {
     "nl": "Voeg aan winkelmand toe",
     "pl": "Dodaj do koszyka",
     "pt": "Adicionar ao carrinho",
-    "pt-br": "Adicionar à cesta",
+    "pt-BR": "Adicionar à cesta",
     "ro": "Adauga in cos",
     "ru": "Добавить в корзину",
     "sk": "Pridať do košíka",
