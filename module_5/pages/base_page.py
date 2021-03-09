@@ -3,5 +3,5 @@ class BasePage:
         self.driver = driver
         self.link = link
 
-    def open_page(self, driver, link):
+    def open(self, link):
         self.driver.get(link)
