@@ -20,3 +20,11 @@ class ProductPage(BasePage):
     def is_product_added_to_cart(self):
         self.is_basket_has_correct_total()
         self.is_success_message_displayed()
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.success_message), \
+            "Success message is presented, but should not be"
+
+    def should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.success_message), \
+            "Success message was present, but now it is not"
