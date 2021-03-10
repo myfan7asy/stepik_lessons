@@ -3,9 +3,6 @@ from stepik_lessons.module_5.pages.locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def should_have_promo_code_in_link(self):
-        assert self.is_expected_url_opened(ProductPageLocators.promo_code), "URL does not have promo code"
-
     def click_add_to_basket_button(self):
         add_to_basket_button = self.driver.find_element(*ProductPageLocators.add_to_basket_button)
         add_to_basket_button.click()

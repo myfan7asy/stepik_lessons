@@ -16,4 +16,3 @@ class ProductPageLocators:
     product_price = (By.CSS_SELECTOR, "p.price_color")
     success_message_with_product_name = (By.CSS_SELECTOR, "div.alertinner > strong")
     basket_message_with_product_price = (By.CSS_SELECTOR, "div.alertinner > p > strong")
-    promo_code = "?promo=newYear"
