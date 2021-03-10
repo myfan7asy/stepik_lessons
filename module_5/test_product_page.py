@@ -1,6 +1,5 @@
 import pytest
 
-from .pages.locators import ProductPageLocators
 from .pages.product_page import ProductPage
 
 promo_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo="
@@ -34,3 +33,13 @@ class TestProductPage:
         page.open(product_link)
         page.click_add_to_basket_button()
         page.should_be_disappeared()
+
+    def test_guest_should_see_login_link_on_product_page(self, driver):
+        page = ProductPage(driver, product_link)
+        page.open(product_link)
+        page.should_be_login_link()
+
+    def test_guest_can_go_to_login_page_from_product_page(self, driver):
+        page = ProductPage(driver, product_link)
+        page.open(product_link)
+        page.go_to_login_page()
