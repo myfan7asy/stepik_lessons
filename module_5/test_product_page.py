@@ -52,3 +52,17 @@ class TestProductPage:
         basket_page = BasketPage(driver, driver.current_url)
         basket_page.should_be_basket_url()
         basket_page.should_be_empty_basket()
+
+
+@pytest.mark.registered_user
+class TestUserAddToBasketFromProductPage:
+    def test_user_should_see_login_link_on_product_page(self, driver):
+        page = ProductPage(driver, product_link)
+        page.open(product_link)
+        page.should_be_login_link()
+
+    def test_user_can_add_product_to_basket(self, driver):
+        page = ProductPage(driver, product_link)
+        page.open(product_link)
+        page.click_add_to_basket_button()
+        page.is_product_added_to_cart()

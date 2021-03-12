@@ -3,6 +3,7 @@ from .pages.locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
@@ -16,3 +17,13 @@ class LoginPage(BasePage):
 
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.REGISTER_FORM), "Register form is not present"
+
+    def register_new_user(self, email, password):
+        login_input = self.driver.find_element(*LoginPageLocators.login_input)
+        login_input.sendkeys(email)
+        password_input = self.driver.find_element(*LoginPageLocators.password_input)
+        password_input.sendkeys(password)
+        confirm_password_input = self.driver.find_element(*LoginPageLocators.confirm_password_input)
+        confirm_password_input.sendkeys(password)
+        login_button = self.driver.find_element(*LoginPageLocators.register_button)
+        login_button.click()

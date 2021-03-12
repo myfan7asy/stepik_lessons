@@ -1,4 +1,5 @@
 import math
+import time
 
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -8,6 +9,9 @@ from stepik_lessons.module_5.pages.locators import BasePageLocators
 
 
 class BasePage:
+    email = str(time.time()) + "@fakemail.org"
+    password = "QWer-1234!"
+
     def __init__(self, driver, link, timeout=10):
         self.driver = driver
         self.driver.implicitly_wait(timeout)
@@ -67,3 +71,8 @@ class BasePage:
     def go_to_basket_page(self):
         link = self.driver.find_element(*BasePageLocators.BASKET_LINK)
         link.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON)
+
+
