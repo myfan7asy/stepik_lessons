@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from stepik_lessons.module_5.login_page import LoginPage
 from stepik_lessons.module_5.pages.base_page import BasePage
 from stepik_lessons.module_5.pages.main_page import MainPage
+from datetime import datetime
 
 
 def pytest_addoption(parser):
@@ -23,6 +24,8 @@ def driver():
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
     yield driver
+    now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    driver.save_screenshot('screenshot-%s.png' % now)
     driver.quit()
 
 
