@@ -1,5 +1,6 @@
 import pytest
 
+from .pages.basket_page import BasketPage
 from .pages.product_page import ProductPage
 
 promo_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo="
@@ -43,3 +44,11 @@ class TestProductPage:
         page = ProductPage(driver, product_link)
         page.open(product_link)
         page.go_to_login_page()
+
+    def test_guest_cant_see_product_in_basket_opened_from_product_page(self, driver):
+        page = ProductPage(driver, product_link)
+        page.open(product_link)
+        page.go_to_basket_page()
+        basket_page = BasketPage(driver, driver.current_url)
+        basket_page.should_be_basket_url()
+        basket_page.should_be_empty_basket()
