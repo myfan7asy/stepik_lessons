@@ -1,0 +1,112 @@
+{
+  "uid" : "a512758efc765926",
+  "name" : "test_guest_can_add_product_to_basket[offer7]",
+  "fullName" : "module_5.test_product_page.TestProductPage#test_guest_can_add_product_to_basket",
+  "historyId" : "8433857a769ecd2ca3eba03399b040cb",
+  "time" : {
+    "start" : 1615670488477,
+    "stop" : 1615670490805,
+    "duration" : 2328
+  },
+  "status" : "skipped",
+  "statusMessage" : "XFAIL\n\nAssertionError: Success message displays wrong book name",
+  "statusTrace" : "self = <stepik_lessons.module_5.test_product_page.TestProductPage object at 0x0000022298532AF0>, driver = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"a68102bf4932a76f6790d92ac3b6c530\")>\npromo_offer = 'offer7'\n\n    @pytest.mark.parametrize('promo_offer', [\"offer0\", \"offer1\", \"offer2\", \"offer3\", \"offer4\", \"offer5\",\n                                             \"offer6\", pytest.param(\"offer7\", marks=pytest.mark.xfail),\n                                             \"offer8\", \"offer9\"])\n    def test_guest_can_add_product_to_basket(self, driver, promo_offer):\n        page = ProductPage(driver, promo_link)\n        page.open(promo_link + promo_offer)\n        page.click_add_to_basket_button()\n        page.solve_quiz_and_get_code()\n>       page.is_product_added_to_cart()\n\nmodule_5\\test_product_page.py:19: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nmodule_5\\pages\\product_page.py:22: in is_product_added_to_cart\n    self.is_success_message_displayed()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <stepik_lessons.module_5.pages.product_page.ProductPage object at 0x000002229852B6A0>\n\n    def is_success_message_displayed(self):\n        book_name = self.driver.find_element(*ProductPageLocators.product_name).text\n        success_message = self.driver.find_element(*ProductPageLocators.success_message_with_product_name).text\n>       assert book_name == success_message, \"Success message displays wrong book name\"\nE       AssertionError: Success message displays wrong book name\n\nmodule_5\\pages\\product_page.py:13: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "driver",
+    "time" : {
+      "start" : 1615670485036,
+      "stop" : 1615670488476,
+      "duration" : 3440
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "skipped",
+    "statusMessage" : "XFAIL\n\nAssertionError: Success message displays wrong book name",
+    "statusTrace" : "self = <stepik_lessons.module_5.test_product_page.TestProductPage object at 0x0000022298532AF0>, driver = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"a68102bf4932a76f6790d92ac3b6c530\")>\npromo_offer = 'offer7'\n\n    @pytest.mark.parametrize('promo_offer', [\"offer0\", \"offer1\", \"offer2\", \"offer3\", \"offer4\", \"offer5\",\n                                             \"offer6\", pytest.param(\"offer7\", marks=pytest.mark.xfail),\n                                             \"offer8\", \"offer9\"])\n    def test_guest_can_add_product_to_basket(self, driver, promo_offer):\n        page = ProductPage(driver, promo_link)\n        page.open(promo_link + promo_offer)\n        page.click_add_to_basket_button()\n        page.solve_quiz_and_get_code()\n>       page.is_product_added_to_cart()\n\nmodule_5\\test_product_page.py:19: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nmodule_5\\pages\\product_page.py:22: in is_product_added_to_cart\n    self.is_success_message_displayed()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <stepik_lessons.module_5.pages.product_page.ProductPage object at 0x000002229852B6A0>\n\n    def is_success_message_displayed(self):\n        book_name = self.driver.find_element(*ProductPageLocators.product_name).text\n        success_message = self.driver.find_element(*ProductPageLocators.success_message_with_product_name).text\n>       assert book_name == success_message, \"Success message displays wrong book name\"\nE       AssertionError: Success message displays wrong book name\n\nmodule_5\\pages\\product_page.py:13: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "57a8bf7c443dace6",
+      "name" : "stdout",
+      "source" : "57a8bf7c443dace6.txt",
+      "type" : "text/plain",
+      "size" : 26
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "driver::0",
+    "time" : {
+      "start" : 1615670490932,
+      "stop" : 1615670493210,
+      "duration" : 2278
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "@pytest.mark.xfail"
+  }, {
+    "name" : "parentSuite",
+    "value" : "module_5"
+  }, {
+    "name" : "suite",
+    "value" : "test_product_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProductPage"
+  }, {
+    "name" : "host",
+    "value" : "UA01046"
+  }, {
+    "name" : "thread",
+    "value" : "17892-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "module_5.test_product_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "promo_offer",
+    "value" : "'offer7'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.xfail" ]
+  },
+  "source" : "a512758efc765926.json",
+  "parameterValues" : [ "'offer7'" ]
+}

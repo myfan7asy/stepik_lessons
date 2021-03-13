@@ -1,0 +1,112 @@
+{
+  "uid" : "4ff023064ad9e431",
+  "name" : "test_user_can_add_product_to_basket",
+  "fullName" : "module_5.test_product_page.TestUserAddToBasketFromProductPage#test_user_can_add_product_to_basket",
+  "historyId" : "7067a9e3c7ddc2d433d88d7767a8449b",
+  "time" : {
+    "start" : 1615670593793,
+    "stop" : 1615670593793,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError",
+  "statusTrace" : "driver = <selenium.webdriver.chrome.webdriver.WebDriver (session=\"e08a0eee589b50b0a0a4eebafa664ba5\")>\n\n    @pytest.fixture()\n    def setup(driver):\n        link = \"http://selenium1py.pythonanywhere.com/\"\n        page = MainPage(driver, link)\n        page.open(link)\n        page.go_to_login_page()\n        login_page = LoginPage(driver, driver.current_url)\n        login_page.should_be_login_page()\n        login_page.register_new_user(BasePage.email, BasePage.password)\n>       login_page.should_be_authorized_user()\n\nmodule_5\\conftest.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <stepik_lessons.module_5.login_page.LoginPage object at 0x0000022298525790>\n\n    def should_be_authorized_user(self):\n>       assert self.is_element_present(*BasePageLocators.USER_ICON)\nE       AssertionError\n\nmodule_5\\pages\\base_page.py:76: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "driver",
+    "time" : {
+      "start" : 1615670593794,
+      "stop" : 1615670597221,
+      "duration" : 3427
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "setup",
+    "time" : {
+      "start" : 1615670597221,
+      "stop" : 1615670611613,
+      "duration" : 14392
+    },
+    "status" : "failed",
+    "statusMessage" : "AssertionError\n",
+    "statusTrace" : "  File \"c:\\courses\\stepik_lessons\\newenv\\lib\\site-packages\\pluggy\\callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"c:\\courses\\stepik_lessons\\newenv\\lib\\site-packages\\_pytest\\fixtures.py\", line 1126, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"c:\\courses\\stepik_lessons\\newenv\\lib\\site-packages\\_pytest\\fixtures.py\", line 932, in call_fixture_func\n    fixture_result = fixturefunc(**kwargs)\n  File \"C:\\courses\\stepik_lessons\\module_5\\conftest.py\", line 38, in setup\n    login_page.should_be_authorized_user()\n  File \"C:\\courses\\stepik_lessons\\module_5\\pages\\base_page.py\", line 76, in should_be_authorized_user\n    assert self.is_element_present(*BasePageLocators.USER_ICON)\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "stepsCount" : 0,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ {
+    "name" : "driver::0",
+    "time" : {
+      "start" : 1615670611627,
+      "stop" : 1615670613922,
+      "duration" : 2295
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "registered_user"
+  }, {
+    "name" : "parentSuite",
+    "value" : "module_5"
+  }, {
+    "name" : "suite",
+    "value" : "test_product_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestUserAddToBasketFromProductPage"
+  }, {
+    "name" : "host",
+    "value" : "UA01046"
+  }, {
+    "name" : "thread",
+    "value" : "17892-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "module_5.test_product_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "registered_user" ]
+  },
+  "source" : "4ff023064ad9e431.json",
+  "parameterValues" : [ ]
+}

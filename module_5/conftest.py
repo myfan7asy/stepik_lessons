@@ -5,7 +5,6 @@ from selenium.webdriver.chrome.options import Options
 from stepik_lessons.module_5.login_page import LoginPage
 from stepik_lessons.module_5.pages.base_page import BasePage
 from stepik_lessons.module_5.pages.main_page import MainPage
-from datetime import datetime
 
 
 def pytest_addoption(parser):
@@ -24,15 +23,14 @@ def driver():
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
     yield driver
-    now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    driver.save_screenshot('screenshot-%s.png' % now)
     driver.quit()
 
 
 @pytest.fixture()
-def setup():
+def setup(driver):
     link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(driver, link)
+    page.open(link)
     page.go_to_login_page()
     login_page = LoginPage(driver, driver.current_url)
     login_page.should_be_login_page()

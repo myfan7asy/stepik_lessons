@@ -8,7 +8,9 @@ product_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-
 
 
 class TestProductPage:
-    @pytest.mark.parametrize('promo_offer', ["offer0", pytest.param("offer7", marks=pytest.mark.xfail)])
+    @pytest.mark.parametrize('promo_offer', ["offer0", "offer1", "offer2", "offer3", "offer4", "offer5",
+                                             "offer6", pytest.param("offer7", marks=pytest.mark.xfail),
+                                             "offer8", "offer9"])
     def test_guest_can_add_product_to_basket(self, driver, promo_offer):
         page = ProductPage(driver, promo_link)
         page.open(promo_link + promo_offer)
@@ -56,12 +58,11 @@ class TestProductPage:
 
 @pytest.mark.registered_user
 class TestUserAddToBasketFromProductPage:
-    def test_user_should_see_login_link_on_product_page(self, driver):
+    def test_user_should_see_login_link_on_product_page(self, setup, driver):
         page = ProductPage(driver, product_link)
         page.open(product_link)
-        page.should_be_login_link()
 
-    def test_user_can_add_product_to_basket(self, driver):
+    def test_user_can_add_product_to_basket(self, setup, driver):
         page = ProductPage(driver, product_link)
         page.open(product_link)
         page.click_add_to_basket_button()

@@ -4,10 +4,10 @@ from selenium.webdriver.common.by import By
 class LoginPageLocators:
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM = (By.ID, "register_form")
-    login_input = (By.ID, "id_registration-email")
-    password_input = (By.ID, "id_registration-password1")
-    confirm_password_input = (By.ID, "id_registration-password2")
-    register_button = (By.CSS_SELECTOR, "button[name='login_submit']")
+    login_input = (By.CSS_SELECTOR, "input#id_registration-email")
+    password_input = (By.CSS_SELECTOR, "input#id_registration-password1")
+    confirm_password_input = (By.CSS_SELECTOR, "input#id_registration-password2")
+    register_button = (By.CSS_SELECTOR, "button[name='registration_submit']")
 
 
 class ProductPageLocators:
