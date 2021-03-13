@@ -56,6 +56,7 @@ class TestProductPage:
         basket_page.should_be_empty_basket()
 
 
+@pytest.mark.xfail
 @pytest.mark.registered_user
 class TestUserAddToBasketFromProductPage:
     def test_user_should_see_login_link_on_product_page(self, setup, driver):
