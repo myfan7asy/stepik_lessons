@@ -1,7 +1,7 @@
 import pytest
 
-from .pages.basket_page import BasketPage
-from .pages.product_page import ProductPage
+from stepik_lessons.module_5.pages.basket_page import BasketPage
+from stepik_lessons.module_5.pages.product_page import ProductPage
 
 promo_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo="
 product_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"

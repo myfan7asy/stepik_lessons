@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from stepik_lessons.module_5.login_page import LoginPage
+from stepik_lessons.module_5.pages.login_page import LoginPage
 from stepik_lessons.module_5.pages.base_page import BasePage
 from stepik_lessons.module_5.pages.main_page import MainPage
 
