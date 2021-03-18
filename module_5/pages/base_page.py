@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from stepik_lessons.module_5.pages.locators import BasePageLocators
+from .locators import BasePageLocators
 
 
 class BasePage:

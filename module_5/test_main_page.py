@@ -1,8 +1,8 @@
 import pytest
 
-from stepik_lessons.module_5.pages.login_page import LoginPage
-from stepik_lessons.module_5.pages.basket_page import BasketPage
-from stepik_lessons.module_5.pages.main_page import MainPage
+from .pages.login_page import LoginPage
+from .pages.basket_page import BasketPage
+from .pages.main_page import MainPage
 
 link = "http://selenium1py.pythonanywhere.com/"
 

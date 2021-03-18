@@ -1,5 +1,5 @@
-from stepik_lessons.module_5.pages.base_page import BasePage
-from stepik_lessons.module_5.pages.locators import LoginPageLocators
+from .base_page import BasePage
+from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
