@@ -13,7 +13,7 @@ def language(request):
 
 
 @pytest.fixture()
-def driver():
+def driver(language):
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': f"{language}, en"})
     driver = webdriver.Chrome(options=options)

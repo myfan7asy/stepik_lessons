@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from helpers.locales import locales
-from pages.base_page import BasePage
+from final.helpers.locales import locales
+from final.pages.base_page import BasePage
 
 
 class ProductPage(BasePage):

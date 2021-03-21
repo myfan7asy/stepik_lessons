@@ -1,4 +1,4 @@
-from pages.product_page import ProductPage
+from final.pages.product_page import ProductPage
 
 
 class TestChangeLanguageFromAProductPage:

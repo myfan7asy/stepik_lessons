@@ -1,6 +1,6 @@
-from pages.home_page import HomePage
-from pages.login_page import LoginPage
-from pages.basket_page import BasketPage
+from final.pages.home_page import HomePage
+from final.pages.login_page import LoginPage
+from final.pages.basket_page import BasketPage
 
 
 class TestHomePageInteractions:
