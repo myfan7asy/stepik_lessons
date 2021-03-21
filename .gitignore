@@ -1,3 +1,5 @@
 .idea/
-env/
-.pytest_cache/
+newenv/
+*.pyc
+*.pyo
+*/__pychache__/*

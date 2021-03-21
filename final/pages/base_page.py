@@ -13,8 +13,11 @@ class BasePage:
         self.driver = driver
         self.url = url
 
-    def open(self, url=base_url, path=""):
-        self.driver.get(url + path)
+    def open(self, url=base_url, path=None):
+        if path is not None:
+            self.driver.get(url + path)
+        else:
+            self.driver.get(url)
 
     def verify_url(self, path):
         url = self.driver.current_url
