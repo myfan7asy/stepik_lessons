@@ -1,5 +1,5 @@
 from final.pages.home_page import HomePage
-from final.pages.login_page import LoginPage
+from final.pages.login_register_page import LoginRegisterPage
 from final.pages.basket_page import BasketPage
 
 
@@ -18,7 +18,7 @@ class TestHomePageInteractions:
         home_page.open()
         home_page.open_login_page()
 
-        login_page = LoginPage(driver)
+        login_page = LoginRegisterPage(driver)
         login_page.verify_url(self.login_page_path)
 
     def test_open_empty_basket_from_home_page(self, driver):

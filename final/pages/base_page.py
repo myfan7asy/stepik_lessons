@@ -10,6 +10,8 @@ class BasePage:
     confirm_language_change_button_locator = (By.XPATH, "//button[text()='Go']")
     search_input_locator = (By.ID, "id_q")
     search_submit_button_locator = (By.XPATH, "//input[@value='Search']")
+    account_link_locator = (By.XPATH, "//a[@href='/en-gb/accounts/']")
+    logout_link_locator = (By.ID, "logout_link")
 
     def __init__(self, driver, url=base_url):
         self.driver = driver
@@ -49,6 +51,10 @@ class BasePage:
         if self.driver.find_element(*locator):
             return True
 
+    def is_element_not_present(self, locator):
+        if not self.driver.find_element(*locator):
+            return True
+
     def change_language(self, change_language):
         language_selector = Select(self.driver.find_element(*self.language_selector_locator))
         language_selector.select_by_value(change_language)
@@ -60,3 +66,16 @@ class BasePage:
     def search_for_a_product(self, search_phrase):
         self.find_text_input_and_complete_it(self.search_input_locator, search_phrase)
         self.find_element_and_click_on_it(self.search_submit_button_locator)
+
+    def click_logout(self):
+        self.find_element_and_click_on_it(self.logout_link_locator)
+
+    def verify_successful_logout(self):
+        self.verify_logout_link_absence()
+        self.verify_account_link_absence()
+
+    def verify_logout_link_absence(self):
+        self.is_element_not_present(self.logout_link_locator)
+
+    def verify_account_link_absence(self):
+        self.is_element_not_present(self.account_link_locator)
