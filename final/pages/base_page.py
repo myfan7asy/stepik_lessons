@@ -8,6 +8,8 @@ class BasePage:
     view_basket_button_locator = (By.CSS_SELECTOR, "span.btn-group > a.btn-default")
     language_selector_locator = (By.CSS_SELECTOR, "select.form-control")
     confirm_language_change_button_locator = (By.XPATH, "//button[text()='Go']")
+    search_input_locator = (By.ID, "id_q")
+    search_submit_button_locator = (By.XPATH, "//input[@value='Search']")
 
     def __init__(self, driver, url=base_url):
         self.driver = driver
@@ -54,3 +56,7 @@ class BasePage:
 
     def verify_url_change_on_language_switch(self, new_language):
         return f"/{new_language}/" in self.driver.current_url
+
+    def search_for_a_product(self, search_phrase):
+        self.find_text_input_and_complete_it(self.search_input_locator, search_phrase)
+        self.find_element_and_click_on_it(self.search_submit_button_locator)

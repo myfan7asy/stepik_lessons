@@ -7,7 +7,6 @@ class TestChangeLanguageFromAProductPage:
 
     def test_switch_language_and_verify_changes(self, driver):
         product_page = ProductPage(driver)
-        print(product_page.base_url, self.product_page_path)
         product_page.open(path=self.product_page_path)
         product_page.verify_url(self.product_page_path)
         product_page.change_language(self.language)
