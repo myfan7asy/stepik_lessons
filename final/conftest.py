@@ -15,6 +15,7 @@ def language(request):
 @pytest.fixture()
 def driver(language):
     options = Options()
+    options.add_argument("--window-size=1920,1080")
     options.add_experimental_option('prefs', {'intl.accept_languages': f"{language}, en"})
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
