@@ -1,6 +1,0 @@
-- setup and teardown are separate methods, not a fixture
-- test and setup/teardown are enclosed in Class
-- window size is set in a different way (for manual sample I made it as a part of setup/teardown method)
-- actions (click, send keys) are done to web elements in the same lines (web element variables are absent)
-- no assertions
-- test actions are not separated with tabs as per Arrange/Act/Assert
