@@ -6,6 +6,10 @@ from final.pages.base_page import BasePage
 
 
 class LoginRegisterPage(BasePage):
+    """
+    A class-container for Login/Register page. Is a child to BasePage.
+    Contains page specific fields (data and locators) as well as methods.
+    """
     # Log In block
     success_login_message = "Welcome back"
 

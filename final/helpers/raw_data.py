@@ -1,3 +1,7 @@
+"""
+A file to contain different data.
+"""
+
 locales = {
     "ar": "أضف الى سلة التسوق",
     "ca": "Afegeix a la cistella",

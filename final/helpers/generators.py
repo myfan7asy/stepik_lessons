@@ -1,3 +1,7 @@
+"""
+A specific file to contain all helper functions (mostly for data generation) which are not directly related to tests.
+"""
+
 from datetime import datetime
 import string
 import random
