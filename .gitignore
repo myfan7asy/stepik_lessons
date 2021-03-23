@@ -4,4 +4,5 @@ newenv/
 *.pyo
 */__pychache__/
 geckodriver.log
+# Following test_test.py is just for personal test purposes
 test_test.py
