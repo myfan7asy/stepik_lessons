@@ -8,30 +8,37 @@ def pytest_addoption(parser):
     parser.addoption("--language", action="store", default="en-GB",
                      help="Choose one of languages: ar, it, uk or en-GB")
     parser.addoption("--browser", action="store", default="chrome",
-                     help="Choose one of available browsers: chrome, firefox or chrome-headless")
+                     help="Choose one of available browsers: chrome, chrome-headless, firefox")
+
+
+def create_chrome(language, headless=False) -> webdriver:
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option('prefs', {'intl.accept_languages': f"{language}, en"})
+    if headless:
+        chrome_options.add_argument("--headless")
+    else:
+        chrome_options.add_argument("--window-size=1920,1080")
+    return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+
+
+def create_firefox():
+    return webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
 
 @pytest.fixture()
 def driver(request):
+    driver = None
     language = request.config.getoption("language")
     browser = request.config.getoption("browser")
 
-    chrome_options = webdriver.ChromeOptions()
-    locale_option = ('prefs', {'intl.accept_languages': f"{language}, en"})
-
     if browser == "chrome":
-        chrome_options.add_experimental_option(*locale_option)
-        chrome_options.add_argument("--window-size=1920,1080")
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+        driver = create_chrome(language)
     elif browser == "chrome-headless":
-        chrome_options.add_experimental_option(*locale_option)
-        chrome_options.add_argument("--headless")
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+        driver = create_chrome(language, headless=True)
     elif browser == "firefox":
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        driver = create_firefox()
     else:
-        raise pytest.UsageError("--browser should be chrome, firefox or chrome-headless")
-
+        raise pytest.UsageError("--browsers: chrome, chrome-headless, firefox")
     driver.implicitly_wait(5)
     yield driver
     driver.quit()
