@@ -1,3 +1,4 @@
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
@@ -52,8 +53,11 @@ class BasePage:
             return True
 
     def is_element_not_present(self, locator):
-        if not self.driver.find_element(*locator):
+        try:
+            self.driver.find_element(*locator)
+        except NoSuchElementException:
             return True
+        return False
 
     def change_language(self, change_language):
         language_selector = Select(self.driver.find_element(*self.language_selector_locator))

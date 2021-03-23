@@ -9,6 +9,8 @@ class TestChangeLanguageFromAProductPage:
         product_page = ProductPage(driver)
         product_page.open(path=self.product_page_path)
         product_page.verify_url(self.product_page_path)
+
         product_page.change_language(self.language)
+
         product_page.verify_url_change_on_language_switch(self.language)
         product_page.verify_button_translation_change_on_language_switch(self.language)

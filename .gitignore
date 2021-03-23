@@ -3,3 +3,5 @@ newenv/
 *.pyc
 *.pyo
 */__pychache__/
+geckodriver.log
+test_test.py

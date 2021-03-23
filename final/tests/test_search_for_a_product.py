@@ -14,9 +14,11 @@ class TestProductSearch:
     def test_search_for_a_product(self, driver, search_keyword, results_expected):
         home_page = HomePage(driver)
         home_page.open()
+
         home_page.search_for_a_product(search_keyword)
 
         search_results_page = SearchResultsPage(driver)
         search_results_page.verify_url(self.search_page_path + search_keyword)
+
         search_results_page.is_search_keyword_in_title(search_keyword)
         search_results_page.check_for_amount_of_results_found(results_expected)
