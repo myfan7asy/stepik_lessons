@@ -1,6 +1,4 @@
 allure-pytest==2.8.36
-allure-python-commons==2.8.36
 pytest==6.2.2
-requests==2.25.1
 selenium==3.141.0
 webdriver-manager==3.3.0

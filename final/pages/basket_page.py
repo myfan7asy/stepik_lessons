@@ -10,6 +10,7 @@ class BasketPage(BasePage):
     """
     basket_breadcrumb_locator = (By.XPATH, "//li[contains(text(), 'Basket')]")
     empty_basket_note_locator = (By.XPATH, "//p[normalize-space('Your Basket is empty.')]")
+    products_list_locator = (By.CSS_SELECTOR, "div.basket-items")
     breadcrumb_attribute = "class"
     breadcrumb_attribute_value = "active"
 
@@ -28,10 +29,14 @@ class BasketPage(BasePage):
         """
         self.is_element_present(self.empty_basket_note_locator)
 
+    def verify_product_list_absence(self):
+        self.is_element_not_present(self.products_list_locator)
+
     def is_basket_empty(self):
         """
         Verifies if basket is empty.
-        (complex verification, which consists of 2 methods)
+        (complex verification, which consists of 3 methods)
         """
         self.is_class_in_element()
         self.is_empty_basket_note_present()
+        self.verify_product_list_absence()
